@@ -4,7 +4,7 @@ class Gym{
         this.id = 0
         this.nome = ""
         this.telefone = ""
-        this.bodyBuilders = []
+        //this.bodyBuilders = []
     }
 }
 

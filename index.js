@@ -17,7 +17,10 @@ app.post('/body-builder', (req, res) =>{
 
     const data = req.body
 
-    let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, null)
+    const idAcademia = data.idAcademia
+    const gym = academias.find((academia) => academia.id == idAcademia)
+
+    let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, gym)
 
     clientes.push(bodyBuilder)
     res.send('cadastrou')
@@ -29,7 +32,10 @@ app.put('/body-builder/:cpf', (req, res) =>{
       let cliente = clientes[i]
       if(cliente.cpf == cpf){
         const data = req.body
-        let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, null)
+
+        const idAcademia = data.idAcademia
+        const gym = academias.find((academia) => academia.id == idAcademia)
+        let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, gym)
         clientes[i] = bodyBuilder
         res.send('Atualizou')
       }

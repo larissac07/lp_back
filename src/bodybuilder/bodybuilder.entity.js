@@ -1,6 +1,6 @@
 class BodyBuilder{
 
-    constructor(cpf, nome, celular, altura, cabelo, nomeGato, dataNascimento, gym){
+    constructor(cpf, nome, celular, altura, cabelo, nomeGato, dataNascimento, style){
         this.cpf = cpf
         this.nome = nome
         this.celular = celular
@@ -8,7 +8,7 @@ class BodyBuilder{
         this.cabelo = cabelo
         this.nomeGato = nomeGato
         this.dataNascimento = dataNascimento
-        this.gym = gym
+        this.style = style
     }
 }
 

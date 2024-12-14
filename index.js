@@ -8,19 +8,19 @@ app.use(express.json())
 
 var clientes = []
 
-var academias = [
-  { id: 1, nome: "Academia 1", telefone: "12345689"},
-  {id: 2, nome: "Academia 2", telefone: "987654321"}
+var estilos = [
+  { id: 1, nome: "Monstrão"},
+  {id: 2, nome: "Frango"}
 ]
 
 app.post('/body-builder', (req, res) =>{
 
     const data = req.body
 
-    const idAcademia = data.idAcademia
-    const gym = academias.find((academia) => academia.id == idAcademia)
+    const idEstilo = data.idEstilo
+    const style = estilos.find((estilo) => estilo.id == idEstilo)
 
-    let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, gym)
+    let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, style)
 
     clientes.push(bodyBuilder)
     res.send('cadastrou')
@@ -33,9 +33,9 @@ app.put('/body-builder/:cpf', (req, res) =>{
       if(cliente.cpf == cpf){
         const data = req.body
 
-        const idAcademia = data.idAcademia
-        const gym = academias.find((academia) => academia.id == idAcademia)
-        let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, gym)
+        const idEstilo = data.idEstilo
+        const style = estilos.find((estilo) => estilo.id == idEstilo)
+        let bodyBuilder = new BodyBuilder(data.cpf, data.nome, data.celular, data.altura, data.cabelo, data.nomeGato, data.dataNascimento, style)
         clientes[i] = bodyBuilder
         res.send('Atualizou')
       }
@@ -59,8 +59,8 @@ app.get('/body-builder', (req, res) => {
 })
 
 
-app.get("/gym", (req, res) => {
-  res.json(academias)
+app.get("/style", (req, res) => {
+  res.json(estilos)
 }) 
 
 app.listen(port, () => {
